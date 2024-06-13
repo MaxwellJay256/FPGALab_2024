@@ -40,7 +40,7 @@ module DecLEDDisplay(
     reg divclk = 0;
     parameter divfreq = 200; // 分频频率
     always @(posedge clk) begin
-        if (divclk_cnt < 100000000 / divfreq - 1)
+        if (divclk_cnt < 100000000 / divfreq / 2 - 1)
             divclk_cnt <= divclk_cnt + 1;
         else begin
             divclk <= ~divclk;
